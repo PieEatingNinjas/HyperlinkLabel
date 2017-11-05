@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HyperlinkLabelControl"
+             x:Class="HyperlinkLabelControl.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:HyperlinkLabel 
+                RawText="This is a [link](http://apple.com) to Apple and this is [an other one](http://microsoft.com) that goes to Microsoft!" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
