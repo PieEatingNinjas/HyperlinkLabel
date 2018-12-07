@@ -37,8 +37,9 @@ namespace HyperlinkLabelControl.Droid.Renderers
                     foreach (var item in links)
                     {
                         var pattern = Pattern.Compile(item.Text);
-                        var filter = new CustomMatchFilter(item.Start);
-                        Linkify.AddLinks(Control, pattern, "", filter, new CustomTransformFilter(item.Link));
+                        Linkify.AddLinks(Control, pattern, "", 
+                            new CustomMatchFilter(item.Start), 
+                            new CustomTransformFilter(item.Link));
                         Control.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
                     }
                 }
@@ -52,7 +53,7 @@ namespace HyperlinkLabelControl.Droid.Renderers
         }
     }
 
-    public class CustomTransformFilter : Java.Lang.Object, Linkify.ITransformFilter
+    public class CustomTransformFilter : Object, Linkify.ITransformFilter
     {
         readonly string url;
         public CustomTransformFilter(string url)
@@ -64,7 +65,7 @@ namespace HyperlinkLabelControl.Droid.Renderers
             => this.url;
     }
 
-    public class CustomMatchFilter : Java.Lang.Object, Linkify.IMatchFilter
+    public class CustomMatchFilter : Object, Linkify.IMatchFilter
     {
         readonly int start;
         public CustomMatchFilter(int start)
