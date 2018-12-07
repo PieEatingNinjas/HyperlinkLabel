@@ -31,9 +31,9 @@ namespace HyperlinkLabelControl.Droid.Renderers
             if(Element is HyperlinkLabel hyperlinkLabelElement && hyperlinkLabelElement != null)
             {
                 string text = hyperlinkLabelElement.GetText(out List<HyperlinkLabelLink> links);
+                Control.Text = text;
                 if (text != null)
                 {
-                    Control.Text = text;
                     foreach (var item in links)
                     {
                         var pattern = Pattern.Compile(item.Text);
